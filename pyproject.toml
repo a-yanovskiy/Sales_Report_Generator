@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "Market report generator"
+version = "0.2.0"
+description = "Generation of a sales report for a grocery stores."
+authors = ["a-yanovskiy <a.e.yanovskiy@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.11"
+pandas = "^1.3.4"
+openpyxl = "^3.0.9"
+XlsxWriter = "^3.0.2"
+xlrd = "^2.0.1"
+pyinstaller = "^4.7"
+importlib = "^1.0.4"
+importlib-metadata = "^4.8.2"
+typing-extensions = "^4.0.0"
+pyperclip = "^1.8.2"
+
+[tool.poetry.dev-dependencies]
+auto-py-to-exe = "^2.11.0"
+pytest = "^5.2"
+ipython = "^7.29.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
