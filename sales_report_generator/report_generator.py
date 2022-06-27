@@ -1,11 +1,21 @@
 import re
-import sales_report_generator.format_report as format
+import numpy as np
+import pandas as pd
+import format_report as format
 
 DISH_SMILE = '\U0001F34B'
 LEADERS_SMILE = '\U00002734'
 GROWS_SMILE = '\U00002714'
 FALLS_SMILE = '\U0000274C'
 DELETE_WORD_IN_DISH = ' Свежов'
+
+
+def read_xlsx(file_):
+    """ read excel to dataframe and replace all empty values to NaN """
+    dataframe = pd.read_excel(io=file_, engine='openpyxl', dtype=str)
+    dataframe = dataframe.replace(r'^\s*$', np.nan, regex=True)
+    dataframe = dataframe.set_index(dataframe.columns[0])  # 1st column --> index
+    return dataframe
 
 
 def generate_report(dataframe, result='', dish=''):
@@ -46,11 +56,11 @@ def generate_report(dataframe, result='', dish=''):
         return generate_report(df_rest_columns, result, dish)
 
 
-path1 = 'd:\Downloads\Акция неделька (2).xlsx'
-path2 = 'd:\Downloads\Отчет Акция за прошлую неделю.xlsx'
+# path1 = 'd:\Downloads\Акция неделька (2).xlsx'
+# path2 = 'd:\Downloads\Отчет Акция за прошлую неделю.xlsx'
 
-# file1 = read_xlsx(path1)
-# print(generate_report(file1))
+# # file1 = read_xlsx(path1)
+# # print(generate_report(file1))
 
-file2 = format.read_xlsx(path2)
-print(generate_report(file2))
+# file2 = read_xlsx(path2)
+# print(generate_report(file2))
