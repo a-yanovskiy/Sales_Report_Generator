@@ -2,10 +2,10 @@ install:
 	@poetry install
 
 test:
-	poetry run pytest hexlet_python_package tests
+	poetry run pytest sales_report_generator tests
 
 lint:
-	poetry run flake8 hexlet_python_package
+	poetry run flake8 sales_report_generator
 
 selfcheck:
 	poetry check
