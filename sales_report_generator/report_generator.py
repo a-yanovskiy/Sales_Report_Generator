@@ -1,5 +1,5 @@
 import re
-import format_report
+import format
 
 
 def generate_report(dataframe,
@@ -23,26 +23,26 @@ def generate_report(dataframe,
         if not df_second_column.empty:
             if re.match(r'^Unnamed', df_second_column.columns[0]):
                 df_rest_columns = dataframe.iloc[:, 2:]
-                comparing = format_report.df_to_dict(df_second_column)
+                comparing = format.df_to_dict(df_second_column)
 
-                grows_sales = format_report.sort_and_filter_dict_by_items(comparing, 
+                grows_sales = format.sort_and_filter_dict_by_items(comparing,
                                                                    'positive')
                 result += ('\n' + grows_add_text +
-                           format_report.format_dict(grows_sales, dish_del_text))
+                           format.format_dict(grows_sales, dish_del_text))
 
-                falls_sales = format_report.sort_and_filter_dict_by_items(
+                falls_sales = format.sort_and_filter_dict_by_items(
                     comparing, 'negative')
                 result += ('\n' + falls_add_text +
-                           format_report.format_dict(falls_sales, dish_del_text))
+                           format.format_dict(falls_sales, dish_del_text))
 
             else:
                 df_rest_columns = dataframe.iloc[:, 1:]
         else:
             df_rest_columns = dataframe.iloc[:, 1:]
         
-        f = format_report.df_to_dict(df_first_column)
-        sorted_ = format_report.sort_and_filter_dict_by_items(f)
-        sales_leaders = format_report.format_dict(sorted_, dish_del_text)
+        f = format.df_to_dict(df_first_column)
+        sorted_ = format.sort_and_filter_dict_by_items(f)
+        sales_leaders = format.format_dict(sorted_, dish_del_text)
         
         result += '\n' + leaders_add_text + ' ' + sales_leaders + '\n'
 
@@ -54,12 +54,3 @@ def generate_report(dataframe,
                                falls_add_text,
                                dish_del_text)
 
-
-# path1 = "tests\\fixtures\\stocks_1.xlsx"
-# # path2 = 'd:\Downloads\Отчет Акция за прошлую неделю.xlsx'
-#
-# file1 = read_xlsx(path1)
-# print(generate_report(file1))
-
-# file2 = read_xlsx(path2)
-# print(generate_report(file2))
