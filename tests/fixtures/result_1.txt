@@ -1,4 +1,5 @@
-*_Cheese cake_* 
-_Прирост:_ Foodshop 10: 99 шт; Foodshop 4 Yammy: 55 шт; Foodshop 9: 45 шт; Foodshop 7 Yammy: 26 шт; Foodshop 5 Yammy: 6 шт; Foodshop 8: 3 шт; 
-_Падение:_ Foodshop 2 Yammy: 84 шт; Yammy Foodshop 6: 35 шт; Foodshop 3 Yammy: 33 шт; Foodshop 1 Yammy: 4 шт; 
-_ЛИДЕРЫ ПРОДАЖ:_ Foodshop 10: 263 шт; Yammy Foodshop 6: 190 шт; Foodshop 4 Yammy: 150 шт; Foodshop 7 Yammy: 146 шт; Foodshop 9: 95 шт; Foodshop 8: 88 шт; Foodshop 2 Yammy: 67 шт; Foodshop 3 Yammy: 66 шт; Foodshop 5 Yammy: 63 шт; Foodshop 1 Yammy: 5 шт;
+
+Dish: *_Cheese cake_*
+Growth: Foodshop 10: 99 шт; Foodshop 4: 55 шт; Foodshop 9: 45 шт; Foodshop 7: 26 шт; Foodshop 5: 6 шт; Foodshop 8: 3 шт; 
+Falls: Foodshop 2: 84 шт; Foodshop 6: 35 шт; Foodshop 3: 33 шт; Foodshop 1: 4 шт; 
+Sales Leaders: Foodshop 10: 263 шт; Foodshop 6: 190 шт; Foodshop 4: 150 шт; Foodshop 7: 146 шт; Foodshop 9: 95 шт; Foodshop 8: 88 шт; Foodshop 2: 67 шт; Foodshop 3: 66 шт; Foodshop 5: 63 шт; Foodshop 1: 5 шт; 

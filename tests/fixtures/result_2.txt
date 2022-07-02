@@ -1,0 +1,15 @@
+
+Dish: *_Cheese cake_*
+Growth: Foodshop 4: 55 шт; Foodshop 7: 26 шт; Foodshop 5: 6 шт; Foodshop 8: 3 шт; 
+Falls: Foodshop 2: 84 шт; Foodshop 6: 35 шт; Foodshop 3: 33 шт; Foodshop 1: 4 шт; 
+Sales Leaders: Foodshop 6: 190 шт; Foodshop 4: 150 шт; Foodshop 7: 146 шт; Foodshop 8: 88 шт; Foodshop 2: 67 шт; Foodshop 3: 66 шт; Foodshop 5: 63 шт; Foodshop 1: 5 шт; 
+
+Dish: *_Muffin Lucien_*
+Growth: Foodshop 1: 9 шт; 
+Falls: Foodshop 6: 197 шт; Foodshop 3: 58 шт; Foodshop 4: 20 шт; Foodshop 8: 11 шт; Foodshop 5: 8 шт; Foodshop 7: 7 шт; Foodshop 2: 3 шт; 
+Sales Leaders: Foodshop 6: 157 шт; Foodshop 8: 143 шт; Foodshop 4: 85 шт; Foodshop 7: 84 шт; Foodshop 3: 67 шт; Foodshop 2: 58 шт; Foodshop 5: 36 шт; Foodshop 1: 17 шт; 
+
+Dish: *_Pizza_*
+Growth: 
+Falls: Foodshop 5: 4 шт; 
+Sales Leaders: Foodshop 8: 13 шт; Foodshop 3: 6 шт; Foodshop 5: 4 шт; 
