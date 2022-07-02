@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import pyperclip
-
-from format_report import read_xlsx
+import load
 from report_generator import generate_report
 
 
@@ -22,10 +21,18 @@ def get_del_entry():
 def make_report():
     file_path = filedialog.askopenfilename()
     result = ''
-    df = read_xlsx(file_path)
+    df = load.read_xlsx(file_path)
+
     dish_del_text = get_del_entry()
-    entry_add_list = map(lambda x: x if x == '' else x + ': ', get_add_entry())
+    entry_add_list = get_add_entry()
     dish_add_text, leaders_add_text, grows_add_text, falls_add_text = entry_add_list
+
+    load.save_vars(DELETED_TEXT=dish_del_text,
+                   DISH_TEXT=dish_add_text,
+                   LEADERS_TEXT=leaders_add_text,
+                   GROWS_TEXT=grows_add_text,
+                   FALLS_TEXT=falls_add_text)
+
     text = generate_report(df,
                            result,
                            dish_add_text,
@@ -37,11 +44,12 @@ def make_report():
     tk.messagebox.showinfo("Info", "Result copied to clipboard!")
 
 
-def element(frame, label=''):
+def element(frame, label='', insert_var=''):
     lbl = tk.Label(frame, text=label)
     lbl.pack()
     entry = tk.Entry(frame, width=40)
     entry.pack()
+    entry.insert(0, insert_var)
     return entry
 
 
@@ -50,18 +58,29 @@ window = tk.Tk()
 window.geometry('300x300')
 window.title("Sales Report Maker")
 
-del_word_entry = element(window, "This text will be deleted from dish name:")
+
+# load saved variables
+variables = load.load_vars()
+for key, val in variables.items():
+    exec(key + '=val')
+
+
+# add elements
+del_word_entry = element(window,
+                         "This text will be deleted from dish name:",
+                         DELETED_TEXT)
 
 # entry frame
 tk.Frame(window)
 entry_frame = tk.LabelFrame(text='This text will be added:')
 
-dish_entry = element(entry_frame, "Dish text")
-leaders_entry = element(entry_frame, "Leaders text")
-grows_entry = element(entry_frame, "Grows text")
-falls_entry = element(entry_frame, "Falls text")
+dish_entry = element(entry_frame, "Dish text", DISH_TEXT)
+leaders_entry = element(entry_frame, "Leaders text", LEADERS_TEXT)
+grows_entry = element(entry_frame, "Grows text", GROWS_TEXT)
+falls_entry = element(entry_frame, "Falls text", FALLS_TEXT)
 
 entry_frame.pack()
+
 
 # button
 empty_lbl = tk.Label(window, text="")

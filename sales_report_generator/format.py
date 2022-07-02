@@ -1,14 +1,5 @@
-import numpy as np
-import pandas as pd
 import re
-
-
-def read_xlsx(file_):
-    """ read excel to dataframe and replace all empty values to NaN """
-    dataframe = pd.read_excel(io=file_, engine='openpyxl', dtype=str)
-    dataframe = dataframe.replace(r'^\s*$', np.nan, regex=True)
-    dataframe = dataframe.set_index(dataframe.columns[0])  # 1st column --> index
-    return dataframe
+import pandas as pd
 
 
 def sort_and_filter_dict_by_items(dictionary, filter_by='positive'):
