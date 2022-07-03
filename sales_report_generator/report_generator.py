@@ -1,5 +1,5 @@
 import re
-import format
+import sales_report_generator.format as format
 
 
 def generate_report(dataframe,
