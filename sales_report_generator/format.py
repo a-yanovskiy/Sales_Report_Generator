@@ -2,7 +2,7 @@ import re
 import pandas as pd
 
 
-def filter_dict(dictionary, filter_by='positive'):
+def filter_dict(dictionary, filter_by='positive'):  # noqa: C901
     filtered_dict = {}
     for i, k in dictionary.items():
         if not pd.isnull(k):

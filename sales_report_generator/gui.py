@@ -25,7 +25,9 @@ def make_report():
 
     dish_del_text = get_del_entry()
     entry_add_list = get_add_entry()
-    dish_add_text, leaders_add_text, grows_add_text, falls_add_text = entry_add_list
+
+    dish_add_text, leaders_add_text, grows_add_text, falls_add_text = \
+        entry_add_list
 
     load.save_vars(DELETED_TEXT=dish_del_text,
                    DISH_TEXT=dish_add_text,
@@ -61,9 +63,11 @@ window.title("Sales Report Maker")
 
 # load saved variables
 variables = load.load_vars()
-for key, val in variables.items():
-    exec(key + '=val')
-
+DELETED_TEXT = variables['DELETED_TEXT']
+DISH_TEXT = variables['DISH_TEXT']
+LEADERS_TEXT = variables['LEADERS_TEXT']
+GROWS_TEXT = variables['GROWS_TEXT']
+FALLS_TEXT = variables['FALLS_TEXT']
 
 # add elements
 del_word_entry = element(window,
@@ -80,7 +84,6 @@ grows_entry = element(entry_frame, "Grows text", GROWS_TEXT)
 falls_entry = element(entry_frame, "Falls text", FALLS_TEXT)
 
 entry_frame.pack()
-
 
 # button
 empty_lbl = tk.Label(window, text="")
