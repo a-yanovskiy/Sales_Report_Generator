@@ -1,6 +1,6 @@
 import sales_report_generator.report_generator as report
 import pytest
-from load import read_xlsx
+from sales_report_generator.load import read_xlsx
 
 REPORT1_PATH = "tests/fixtures/stocks_1.xlsx"
 RESULT1_PATH = "tests/fixtures/result_1.txt"
