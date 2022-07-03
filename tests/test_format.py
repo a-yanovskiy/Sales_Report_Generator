@@ -1,4 +1,4 @@
-import format
+import sales_report_generator.format as format
 import pytest
 
 INPUT_DICT_INT = {'a': '-10', 'b': '5', 'c': '-7', 'd': '45', 'e': '0'}

@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import pyperclip
 import load
-from report_generator import generate_report
+from sales_report_generator.report_generator import generate_report
 
 
 def get_add_entry():
