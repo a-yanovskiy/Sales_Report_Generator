@@ -8,10 +8,10 @@ RESULT1_PATH = "tests/fixtures/result_1.txt"
 REPORT2_PATH = "tests/fixtures/stocks_2.xlsx"
 RESULT2_PATH = "tests/fixtures/result_2.txt"
 
-DISH_ADD = 'Dish:'
-LEADERS_ADD = 'Sales Leaders:'
-GROWS_ADD = 'Growth:'
-FALLS_ADD = 'Falls:'
+DISH_ADD = 'Dish: '
+LEADERS_ADD = 'Sales Leaders: '
+GROWS_ADD = 'Growth: '
+FALLS_ADD = 'Falls: '
 DISH_DEL = 'Yammy'
 
 
