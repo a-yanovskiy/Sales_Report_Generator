@@ -2,9 +2,8 @@ import re
 import pandas as pd
 
 
-def sort_and_filter_dict_by_items(dictionary, filter_by='positive'):
-    """ sort dict by float values """
-    dict_ = {}
+def filter_dict(dictionary, filter_by='positive'):
+    filtered_dict = {}
     for i, k in dictionary.items():
         if not pd.isnull(k):
             k = int(k) if k.count('.') == 0 else float(k)
@@ -16,9 +15,13 @@ def sort_and_filter_dict_by_items(dictionary, filter_by='positive'):
                     continue
                 else:
                     k = abs(k)
-            dict_[i] = k
+            filtered_dict[i] = k
+    return filtered_dict
 
-    series = pd.Series(dict_)
+
+def sort_dict_by_float_values(unsorted_dict):
+    """ sort dict by float values """
+    series = pd.Series(unsorted_dict)
     series.sort_values(
         axis=0,
         ascending=False,
