@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog
 import pyperclip
-import load
+import sales_report_generator.load as load
 from sales_report_generator.report_generator import generate_report
 
 
