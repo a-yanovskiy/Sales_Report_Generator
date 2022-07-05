@@ -6,10 +6,10 @@ test:
 	poetry run pytest tests -vv
 
 test-coverage:
-	poetry run pytest --cov=gendiff --cov-report xml tests/
+	poetry run pytest --cov=sales_report_generator --cov-report xml tests/
 
 lint:
-	poetry run flake8 gendiff
+	poetry run flake8 sales_report_generator
 
 selfcheck:
 	poetry check
