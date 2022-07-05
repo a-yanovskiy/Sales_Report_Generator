@@ -1,3 +1,4 @@
+import threading
 import tkinter as tk
 from tkinter import filedialog
 import pyperclip
@@ -85,14 +86,19 @@ falls_entry = element(entry_frame, "Falls text", FALLS_TEXT)
 
 entry_frame.pack()
 
-# button
-empty_lbl = tk.Label(window, text="")
-empty_lbl.pack()
-report_btn = tk.Button(window,
-                       text="Choose file to make report_generator",
-                       command=lambda: [get_add_entry(),
-                                        get_del_entry(),
-                                        make_report()])
-report_btn.pack()
+    empty_lbl = tk.Label(window, text="")
+    empty_lbl.pack()
+
+    # button
+    report_btn = tk.Button(window,
+                           text="Choose file to make report",
+                           command=lambda: threading.Thread(target=make_report,
+                                                            args=(del_word_entry,
+                                                                  dish_entry,
+                                                                  leaders_entry,
+                                                                  grows_entry,
+                                                                  falls_entry)).start())
+
+    report_btn.pack()
 
 window.mainloop()
