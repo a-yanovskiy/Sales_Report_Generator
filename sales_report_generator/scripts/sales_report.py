@@ -1,9 +1,9 @@
 # -*- coding:utf-8 -*-
-# from sales_report_generator.gui import gui
+from sales_report_generator.gui import gui
 
 
 def main():
-    pass
+    gui()
 
 
 if __name__ == '__main__':
