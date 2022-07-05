@@ -94,4 +94,4 @@ def gui():
 
     report_btn.pack()
 
-    window.mainloop()
+    return window

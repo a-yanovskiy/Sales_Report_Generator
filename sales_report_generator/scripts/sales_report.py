@@ -3,7 +3,8 @@ from sales_report_generator.gui import gui
 
 
 def main():
-    gui()
+    window = gui()
+    window.mainloop()
 
 
 if __name__ == '__main__':
