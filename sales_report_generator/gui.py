@@ -6,36 +6,28 @@ import sales_report_generator.load as load
 from sales_report_generator.report_generator import generate_report
 
 
-def get_add_entry():
-    dish = dish_entry.get()
-    leaders = leaders_entry.get()
-    grows = grows_entry.get()
-    falls = falls_entry.get()
-    return dish, leaders, grows, falls
+def make_report(del_word_entry,
+                dish_entry,
+                leaders_entry,
+                grows_entry,
+                falls_entry):
 
-
-def get_del_entry():
-    deleted_text = del_word_entry.get()
-    return deleted_text
-
-
-def make_report():
     file_path = filedialog.askopenfilename()
-    result = ''
     df = load.read_xlsx(file_path)
 
-    dish_del_text = get_del_entry()
-    entry_add_list = get_add_entry()
+    dish_del_text = del_word_entry.get()
+    dish_add_text = dish_entry.get()
+    leaders_add_text = leaders_entry.get()
+    grows_add_text = grows_entry.get()
+    falls_add_text = falls_entry.get()
 
-    dish_add_text, leaders_add_text, grows_add_text, falls_add_text = \
-        entry_add_list
+    load.save_vars(deleted_text=dish_del_text,
+                   dish_text=dish_add_text,
+                   leaders_text=leaders_add_text,
+                   grows_text=grows_add_text,
+                   falls_text=falls_add_text)
 
-    load.save_vars(DELETED_TEXT=dish_del_text,
-                   DISH_TEXT=dish_add_text,
-                   LEADERS_TEXT=leaders_add_text,
-                   GROWS_TEXT=grows_add_text,
-                   FALLS_TEXT=falls_add_text)
-
+    result = ''
     text = generate_report(df,
                            result,
                            dish_add_text,
@@ -44,7 +36,7 @@ def make_report():
                            falls_add_text,
                            dish_del_text)
     pyperclip.copy(text)
-    tk.messagebox.showinfo("Info", "Result copied to clipboard!")
+    return tk.messagebox.showinfo("Info", "Result copied to clipboard!")
 
 
 def element(frame, label='', insert_var=''):
@@ -56,35 +48,36 @@ def element(frame, label='', insert_var=''):
     return entry
 
 
-# GUI
-window = tk.Tk()
-window.geometry('300x300')
-window.title("Sales Report Maker")
+def gui():
+    # GUI
+    window = tk.Tk()
+    window.geometry('300x300')
+    window.title("Sales Report Maker")
 
+    # load saved variables
+    variables = load.load_vars()
 
-# load saved variables
-variables = load.load_vars()
-DELETED_TEXT = variables['DELETED_TEXT']
-DISH_TEXT = variables['DISH_TEXT']
-LEADERS_TEXT = variables['LEADERS_TEXT']
-GROWS_TEXT = variables['GROWS_TEXT']
-FALLS_TEXT = variables['FALLS_TEXT']
+    deleted_text = variables['deleted_text']
+    dish_text = variables['dish_text']
+    leaders_text = variables['leaders_text']
+    grows_text = variables['grows_text']
+    falls_text = variables['falls_text']
 
-# add elements
-del_word_entry = element(window,
-                         "This text will be deleted from dish name:",
-                         DELETED_TEXT)
+    # add elements
+    del_word_entry = element(window,
+                             "This text will be deleted from dish name:",
+                             deleted_text)
 
-# entry frame
-tk.Frame(window)
-entry_frame = tk.LabelFrame(text='This text will be added:')
+    # entry frame
+    tk.Frame(window)
+    entry_frame = tk.LabelFrame(text='This text will be added:')
 
-dish_entry = element(entry_frame, "Dish text", DISH_TEXT)
-leaders_entry = element(entry_frame, "Leaders text", LEADERS_TEXT)
-grows_entry = element(entry_frame, "Grows text", GROWS_TEXT)
-falls_entry = element(entry_frame, "Falls text", FALLS_TEXT)
+    dish_entry = element(entry_frame, "Dish text", dish_text)
+    leaders_entry = element(entry_frame, "Leaders text", leaders_text)
+    grows_entry = element(entry_frame, "Grows text", grows_text)
+    falls_entry = element(entry_frame, "Falls text", falls_text)
 
-entry_frame.pack()
+    entry_frame.pack()
 
     empty_lbl = tk.Label(window, text="")
     empty_lbl.pack()
@@ -101,4 +94,4 @@ entry_frame.pack()
 
     report_btn.pack()
 
-window.mainloop()
+    window.mainloop()
