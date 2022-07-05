@@ -83,15 +83,16 @@ def gui():
     empty_lbl.pack()
 
     # button
-    report_btn = tk.Button(window,
-                           text="Choose file to make report",
-                           command=lambda: threading.Thread(target=make_report,
-                                                            args=(del_word_entry,
-                                                                  dish_entry,
-                                                                  leaders_entry,
-                                                                  grows_entry,
-                                                                  falls_entry)).start())
+    button = tk.Button(window,
+                       text="Choose file to make report",
+                       command=lambda: threading.Thread(target=make_report,
+                                                        args=(del_word_entry,
+                                                              dish_entry,
+                                                              leaders_entry,
+                                                              grows_entry,
+                                                              falls_entry)
+                                                        ).start())
 
-    report_btn.pack()
+    button.pack()
 
     return window
