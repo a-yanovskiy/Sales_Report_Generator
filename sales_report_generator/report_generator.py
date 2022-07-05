@@ -1,5 +1,5 @@
 import re
-import sales_report_generator.format as format
+import sales_report_generator.format as format_
 
 
 def generate_report(dataframe,
@@ -23,27 +23,27 @@ def generate_report(dataframe,
         if not df_second_column.empty:
             if re.match(r'^Unnamed', df_second_column.columns[0]):
                 df_rest_columns = dataframe.iloc[:, 2:]
-                comparing = format.df_to_dict(df_second_column)
+                comparing = format_.df_to_dict(df_second_column)
 
-                grows_sales = format.filter_dict(comparing, 'positive')
-                grows_sales = format.sort_dict_by_float_values(grows_sales)
+                grows_sales = format_.filter_dict(comparing, 'positive')
+                grows_sales = format_.sort_dict_by_float_values(grows_sales)
                 result += '\n' + grows_add_text + \
-                          format.format_dict(grows_sales, dish_del_text)
+                          format_.format_dict(grows_sales, dish_del_text)
 
-                falls_sales = format.filter_dict(comparing, 'negative')
-                falls_sales = format.sort_dict_by_float_values(falls_sales)
+                falls_sales = format_.filter_dict(comparing, 'negative')
+                falls_sales = format_.sort_dict_by_float_values(falls_sales)
                 result += '\n' + falls_add_text + \
-                          format.format_dict(falls_sales, dish_del_text)
+                          format_.format_dict(falls_sales, dish_del_text)
 
             else:
                 df_rest_columns = dataframe.iloc[:, 1:]
         else:
             df_rest_columns = dataframe.iloc[:, 1:]
 
-        f = format.df_to_dict(df_first_column)
-        filtered_ = format.filter_dict(f)
-        sorted_ = format.sort_dict_by_float_values(filtered_)
-        sales_leaders = format.format_dict(sorted_, dish_del_text)
+        f = format_.df_to_dict(df_first_column)
+        filtered_ = format_.filter_dict(f)
+        sorted_ = format_.sort_dict_by_float_values(filtered_)
+        sales_leaders = format_.format_dict(sorted_, dish_del_text)
 
         result += '\n' + leaders_add_text + sales_leaders + '\n'
 
