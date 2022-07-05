@@ -4,7 +4,7 @@ version = "0.3.2"
 description = "Generation of a sales report for a grocery stores."
 authors = ["a-yanovskiy <a.e.yanovskiy@gmail.com>"]
 packages = [
-    { include = "sales_report" }
+    { include = "sales_report_generator" }
 ]
 
 [tool.poetry.dependencies]
