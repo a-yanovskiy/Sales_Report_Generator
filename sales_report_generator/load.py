@@ -12,11 +12,14 @@ def read_xlsx(file_):
 
 
 def save_vars(**entry_variables):
-    with open("variables.json", "w") as file:
+    with open("variables.json", "w", encoding='utf-8') as file:
         json.dump(entry_variables, file, indent=2, ensure_ascii=False)
 
 
 def load_vars():
-    with open("variables.json", "r") as file:
-        data = json.load(file)
-        return data
+    try:
+        with open("variables.json", "r", encoding='utf-8') as file:
+            data = json.load(file)
+            return data
+    except FileNotFoundError:
+        return {}

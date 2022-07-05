@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "Market report generator"
-version = "0.4.2"
+version = "0.4.3"
 description = "Generation of a sales report for a grocery stores."
 authors = ["a-yanovskiy <a.e.yanovskiy@gmail.com>"]
 packages = [
