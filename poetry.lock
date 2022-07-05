@@ -136,6 +136,14 @@ whichcraft = "*"
 jinja2 = ["jinja2 (>=2.10)"]
 
 [[package]]
+name = "emojis"
+version = "0.6.0"
+description = "Emojis for Python"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "et-xmlfile"
 version = "1.1.0"
 description = "An implementation of lxml.xmlfile for the standard library"
@@ -701,7 +709,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.11"
-content-hash = "d10be7a3d53c4266b4a74b1048035cd85193b8eee14d28748df690d1011e8960"
+content-hash = "340a13eedf6f5d37b6c7e56846a1e90de219ea9468b2acf29acd6b865d27498e"
 
 [metadata.files]
 altgraph = [
@@ -854,6 +862,10 @@ decorator = [
 ]
 eel = [
     {file = "Eel-0.14.0.tar.gz", hash = "sha256:b21f88c21e050eb2b5f6296f1eeeaf57ad9a2dfbffdf1bf88b90ef05a6ffcdb9"},
+]
+emojis = [
+    {file = "emojis-0.6.0-py3-none-any.whl", hash = "sha256:7da34c8a78ae262fd68cef9e2c78a3c1feb59784489eeea0f54ba1d4b7111c7c"},
+    {file = "emojis-0.6.0.tar.gz", hash = "sha256:bf605d1f1a27a81cd37fe82eb65781c904467f569295a541c33710b97e4225ec"},
 ]
 et-xmlfile = [
     {file = "et_xmlfile-1.1.0-py3-none-any.whl", hash = "sha256:a2ba85d1d6a74ef63837eed693bcb89c3f752169b0e3e7ae5b16ca5e1b3deada"},

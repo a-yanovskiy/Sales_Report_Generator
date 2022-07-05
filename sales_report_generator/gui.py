@@ -4,6 +4,7 @@ from tkinter import filedialog
 import pyperclip
 import sales_report_generator.load as load
 from sales_report_generator.report_generator import generate_report
+import emojis
 
 
 def make_report(del_word_entry,
@@ -16,10 +17,10 @@ def make_report(del_word_entry,
     df = load.read_xlsx(file_path)
 
     dish_del_text = del_word_entry.get()
-    dish_add_text = dish_entry.get()
-    leaders_add_text = leaders_entry.get()
-    grows_add_text = grows_entry.get()
-    falls_add_text = falls_entry.get()
+    dish_add_text = emojis.decode(dish_entry.get())
+    leaders_add_text = emojis.decode(leaders_entry.get())
+    grows_add_text = emojis.decode(grows_entry.get())
+    falls_add_text = emojis.decode(falls_entry.get())
 
     load.save_vars(deleted_text=dish_del_text,
                    dish_text=dish_add_text,
@@ -35,6 +36,7 @@ def make_report(del_word_entry,
                            grows_add_text,
                            falls_add_text,
                            dish_del_text)
+    text = emojis.encode(text)
     pyperclip.copy(text)
     return tk.messagebox.showinfo("Info", "Result copied to clipboard!")
 
@@ -57,11 +59,11 @@ def gui():
     # load saved variables
     variables = load.load_vars()
 
-    deleted_text = variables['deleted_text']
-    dish_text = variables['dish_text']
-    leaders_text = variables['leaders_text']
-    grows_text = variables['grows_text']
-    falls_text = variables['falls_text']
+    deleted_text = variables['deleted_text'] if 'deleted_text' in variables else ''
+    dish_text = variables['dish_text'] if 'dish_text' in variables else ''
+    leaders_text = variables['leaders_text'] if 'leaders_text' in variables else ''
+    grows_text = variables['grows_text'] if 'grows_text' in variables else ''
+    falls_text = variables['falls_text'] if 'falls_text' in variables else ''
 
     # add elements
     del_word_entry = element(window,
