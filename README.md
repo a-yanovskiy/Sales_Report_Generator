@@ -8,15 +8,19 @@ Sales Report Generator is a program, makes readable reports to send it to compan
 
 ## Example
 Shop name is "Yammy". 
-Program takes Excel report:
+Program takes `.xlsx` report:
 
 ![](images/input_file.png)
 
-It cleans up dish names itself. '*_' brackets are needed to make dishes test italic and bold.
+It cleans up dish names itself. `*_` are needed to make dishes text italic and bold.
+
 If you need to clean shop names, you can do this entering the word to be deleted in the input field.
+
 To diversify the appearance of the report, you may enter "Dish", "Sales Leaders", "Growth sales" and "Falls sales", even add emojis.
 
 ![](images/main_window.png)
+
+> The last entered data is saved and will be returned the next time you start the program. These values are stored in `variables.json`.
 
 Result:
 ```
