@@ -1,8 +1,11 @@
 [tool.poetry]
 name = "Market report generator"
-version = "0.3.1"
+version = "0.3.2"
 description = "Generation of a sales report for a grocery stores."
 authors = ["a-yanovskiy <a.e.yanovskiy@gmail.com>"]
+packages = [
+    { include = "sales_report" }
+]
 
 [tool.poetry.dependencies]
 python = ">=3.8,<3.11"
@@ -20,6 +23,7 @@ pyperclip = "^1.8.2"
 auto-py-to-exe = "^2.11.0"
 pytest = "^5.2"
 ipython = "^7.29.0"
+flake8 = "^4.0.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
