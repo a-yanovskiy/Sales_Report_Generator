@@ -59,9 +59,11 @@ def gui():
     # load saved variables
     variables = load.load_vars()
 
-    deleted_text = variables['deleted_text'] if 'deleted_text' in variables else ''
+    deleted_text = variables['deleted_text'] if \
+        'deleted_text' in variables else ''
     dish_text = variables['dish_text'] if 'dish_text' in variables else ''
-    leaders_text = variables['leaders_text'] if 'leaders_text' in variables else ''
+    leaders_text = variables['leaders_text'] if \
+        'leaders_text' in variables else ''
     grows_text = variables['grows_text'] if 'grows_text' in variables else ''
     falls_text = variables['falls_text'] if 'falls_text' in variables else ''
 
