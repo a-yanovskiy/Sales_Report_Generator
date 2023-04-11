@@ -23,7 +23,7 @@ emojis = "^0.6.0"
 [tool.poetry.dev-dependencies]
 auto-py-to-exe = "^2.11.0"
 pytest = "^5.2"
-ipython = "^7.29.0"
+ipython = "^8.10.0"
 flake8 = "^4.0.1"
 pytest-cov = "^3.0.0"
 
